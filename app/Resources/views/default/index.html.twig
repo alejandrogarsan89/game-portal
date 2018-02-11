@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+   <div class="container">
+
+      <h2>Video game list!</h2>
+      <table class="table">
+         <thead>
+         <tr>
+            <th scope="col">#</th>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">description</th>
+         </tr>
+         </thead>
+         <tbody>
+            {% for videoGame in videoGames %}
+                  <tr>
+                     <th scope="row">{{ loop.index }}</th>
+                     <td>{{ videoGame.id }}</td>
+                     <td>{{ videoGame.name }}</td>
+                     <td>{{ videoGame.description }}</td>
+                  </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+
+   </div>
+
+{% endblock %}
