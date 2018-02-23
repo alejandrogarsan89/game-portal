@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/videogame_listing.css') }}">
+{% endblock %}
+
 {% block body %}
 
 
@@ -9,19 +13,19 @@
       <table class="table">
          <thead>
          <tr>
-            <th scope="col">#</th>
-            <th scope="col">id</th>
+            <th scope="col" class="row-short">#</th>
+            <th scope="col" class="row-short">id</th>
             <th scope="col">name</th>
-            <th scope="col">description</th>
+            <th scope="col" class="row-description">description</th>
          </tr>
          </thead>
          <tbody>
             {% for videoGame in videoGames %}
                   <tr>
-                     <th scope="row">{{ loop.index }}</th>
-                     <td>{{ videoGame.id }}</td>
+                     <th class="row-short" scope="row">{{ loop.index }}</th>
+                     <td class="row-short">{{ videoGame.id }}</td>
                      <td>{{ videoGame.name }}</td>
-                     <td>{{ videoGame.description }}</td>
+                     <td class="row-description">{{ videoGame.description }}</td>
                   </tr>
             {% endfor %}
          </tbody>

@@ -8,7 +8,6 @@
 
 namespace AppBundle\Application\Service\VideoGame;
 
-
 use AppBundle\Domain\Model\VideoGame\VideoGameDescription;
 use AppBundle\Domain\Model\VideoGame\VideoGameQueryRepositoryInterface;
 
