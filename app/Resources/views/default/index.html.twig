@@ -1,37 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-   <link rel="stylesheet" type="text/css" href="{{ asset('css/videogame_listing.css') }}">
+    {{ parent() }}
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/main_styles.css') }}">
 {% endblock %}
 
 {% block body %}
+   <div class="container container-fluid">
+      {% include 'default/carrousel.html.twig' %}
+      {% include 'default/section_header.html.twig' with {'section_tittle': 'Videogame list', 'section_description': 'description'} %}
+
+         <div class="row pl-3 pr-3 pb-0 pt-0">
+            <div class="col-sm-12">
+               <table class="table">
+                  <thead>
+                     <tr class="row pl-3 pr-3 pb-0 pt-0">
+                        <th class="col-sm-1">#</th>
+                        <th class="col-sm-1">id</th>
+                        <th class="col-sm-2">name</th>
+                        <th class="col-sm-8">description</th>
+                     </tr>
+                  </thead>
+
+                  <tbody>
+
+                  {% for videoGame in videoGames %}
+                     <tr class="row pl-3 pr-3 pb-0 pt-0">
+                        <td class="col-sm-1">{{ loop.index }}</td>
+                        <td class="col-sm-1">{{ videoGame.id }}</td>
+                        <td class="col-sm-2">{{ videoGame.name }}</td>
+                        <td class="col-sm-8">{{ videoGame.description }}</td>
+                     </tr>
+                  {% endfor %}
 
 
-   <div class="container">
-
-      <h2>Video game list!</h2>
-      <table class="table">
-         <thead>
-         <tr>
-            <th scope="col" class="row-short">#</th>
-            <th scope="col" class="row-short">id</th>
-            <th scope="col">name</th>
-            <th scope="col" class="row-description">description</th>
-         </tr>
-         </thead>
-         <tbody>
-            {% for videoGame in videoGames %}
-                  <tr>
-                     <th class="row-short" scope="row">{{ loop.index }}</th>
-                     <td class="row-short">{{ videoGame.id }}</td>
-                     <td>{{ videoGame.name }}</td>
-                     <td class="row-description">{{ videoGame.description }}</td>
-                  </tr>
-            {% endfor %}
-         </tbody>
-      </table>
-
-
+                  </tbody>
+               </table>
+            </div>
+         </div>
    </div>
-
 {% endblock %}

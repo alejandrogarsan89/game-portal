@@ -1,9 +1,10 @@
 <?php
 
 
-namespace AppBundle\Domain\Model\Entity;
+namespace AppBundle\Domain\Model\VideoGame;
 
-use AppBundle\Domain\Model\VideoGame\VideoGameDescription;
+use AppBundle\Domain\Model\Company\Company;
+use AppBundle\Domain\Model\Platform\Platform;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -32,15 +33,35 @@ class VideoGame
     private $description;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Domain\Model\Company\Company")
+     * @ORM\JoinColumn(name="com_id", referencedColumnName="id")
+     *
+     * @var Company
+     */
+    private $company;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Domain\Model\Platform\Platform")
+     * @ORM\JoinColumn(name="pla_id", referencedColumnName="id")
+     *
+     * @var Platform
+     */
+    private $platform;
+
+    /**
      * VideoGame constructor.
      *
      * @param string $name
+     * @param VideoGameDescription $description
+     * @param Platform $platform
+     * @param Company $company
      */
-    public function __construct(string $name, VideoGameDescription $description)
+    public function __construct(string $name, VideoGameDescription $description, Platform $platform, Company $company)
     {
         $this->name = $name;
         $this->description = $description;
-
+        $this->company = $company;
+        $this->platform = $platform;
     }
 
     /**
@@ -81,5 +102,37 @@ class VideoGame
     public function setDescription($description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return Company
+     */
+    public function getCompany(): Company
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param Company $company
+     */
+    public function setCompany(Company $company): void
+    {
+        $this->company = $company;
+    }
+
+    /**
+     * @return Platform
+     */
+    public function getPlatform(): Platform
+    {
+        return $this->platform;
+    }
+
+    /**
+     * @param Platform $platform
+     */
+    public function setPlatform(Platform $platform): void
+    {
+        $this->platform = $platform;
     }
 }

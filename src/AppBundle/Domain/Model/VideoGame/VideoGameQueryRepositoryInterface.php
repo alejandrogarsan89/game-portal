@@ -3,7 +3,7 @@
 namespace AppBundle\Domain\Model\VideoGame;
 
 
-use AppBundle\Domain\Model\Entity\VideoGame;
+use AppBundle\Domain\Model\VideoGame\VideoGame;
 
 interface VideoGameQueryRepositoryInterface
 {

@@ -31,7 +31,7 @@ services:
 
     AppBundle\Infrastucture\Domain\Model\VideoGame\DoctrineVideoGameRepository:
         factory: 'doctrine.orm.entity_manager:getRepository'
-        arguments: ['AppBundle\Domain\Model\Entity\VideoGame']
+        arguments: ['AppBundle\Domain\Model\VideoGame\VideoGame']
 
     app.video_game_repository:
             class: AppBundle\Infrastucture\Domain\Model\VideoGame\DoctrineVideoGameQueryRepository

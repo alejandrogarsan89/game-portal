@@ -9,7 +9,7 @@
 namespace AppBundle\Infrastucture\Domain\Model\VideoGame;
 
 
-use AppBundle\Domain\Model\Entity\VideoGame;
+use AppBundle\Domain\Model\VideoGame\VideoGame;
 use AppBundle\Domain\Model\VideoGame\VideoGameRepositoryInterface;
 use Doctrine\ORM\EntityRepository;
 
