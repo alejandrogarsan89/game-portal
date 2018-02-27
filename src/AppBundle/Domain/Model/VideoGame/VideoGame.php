@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types = 1);
 
 namespace AppBundle\Domain\Model\VideoGame;
 
@@ -9,12 +9,18 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * Class VideoGame
+ *
+ * @package AppBundle\Domain\Model\VideoGame
+ *
  * @ORM\Entity(repositoryClass="AppBundle\Infrastucture\Domain\Model\VideoGame\DoctrineVideoGameRepository")
  * @ORM\Table(name="videogame")
  */
 class VideoGame
 {
     /**
+     * @var integer $id Id.
+     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
@@ -22,17 +28,23 @@ class VideoGame
     private $id;
 
     /**
+     * @var string $title Title.
+     *
      * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
-    private $name;
+    private $title;
 
     /**
+     * @var VideoGameDescription $description VideoGame description.
+     *
      * @ORM\Embedded(class="AppBundle\Domain\Model\VideoGame\VideoGameDescription", columnPrefix=false)
      */
     private $description;
 
     /**
+     * @var Company $company Compnay.
+     *
      * @ORM\ManyToOne(targetEntity="AppBundle\Domain\Model\Company\Company")
      * @ORM\JoinColumn(name="com_id", referencedColumnName="id")
      *
@@ -41,6 +53,8 @@ class VideoGame
     private $company;
 
     /**
+     * @var Platform $platform Platform.
+     *
      * @ORM\ManyToOne(targetEntity="AppBundle\Domain\Model\Platform\Platform")
      * @ORM\JoinColumn(name="pla_id", referencedColumnName="id")
      *
@@ -56,50 +70,60 @@ class VideoGame
      * @param Platform $platform
      * @param Company $company
      */
-    public function __construct(string $name, VideoGameDescription $description, Platform $platform, Company $company)
+    public function __construct(string $title, VideoGameDescription $description, Platform $platform, Company $company)
     {
-        $this->name = $name;
+        $this->title = $title;
         $this->description = $description;
         $this->company = $company;
         $this->platform = $platform;
     }
 
     /**
-     * @return mixed
+     * Returns id.
+     *
+     * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
 
     /**
-     * @return mixed
+     * Returns title
+     *
+     * @return string
      */
-    public function getName() : string
+    public function getTitle() : string
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**
-     * @param mixed $name
+     * Sets videogame description.
+     *
+     * @param $title
      */
-    public function setName($name): void
+    public function setTitle(string $title) : void
     {
-        $this->name = $name;
+        $this->title = $title;
     }
 
     /**
-     * @return mixed
+     * Gets videogame Description.
+     *
+     * @return VideoGameDescription
      */
-    public function getDescription()
+    public function getDescription() : VideoGameDescription
     {
         return $this->description;
     }
 
     /**
-     * @param mixed $description
+     * Sets VideGame description
+     *
+     * @param VideoGameDescription $description
      */
-    public function setDescription($description): void
+    public function setDescription(VideoGameDescription $description): void
     {
         $this->description = $description;
     }
@@ -113,6 +137,8 @@ class VideoGame
     }
 
     /**
+     * Sets company
+     *
      * @param Company $company
      */
     public function setCompany(Company $company): void
@@ -121,6 +147,8 @@ class VideoGame
     }
 
     /**
+     * Returns platform.
+     *
      * @return Platform
      */
     public function getPlatform(): Platform
@@ -129,6 +157,8 @@ class VideoGame
     }
 
     /**
+     * Sets platform.
+     *
      * @param Platform $platform
      */
     public function setPlatform(Platform $platform): void

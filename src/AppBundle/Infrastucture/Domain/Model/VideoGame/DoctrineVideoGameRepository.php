@@ -12,6 +12,7 @@ namespace AppBundle\Infrastucture\Domain\Model\VideoGame;
 use AppBundle\Domain\Model\VideoGame\VideoGame;
 use AppBundle\Domain\Model\VideoGame\VideoGameRepositoryInterface;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class DoctrineVideoGameRepository extends EntityRepository implements VideoGameRepositoryInterface
 {
@@ -26,5 +27,10 @@ class DoctrineVideoGameRepository extends EntityRepository implements VideoGameR
     function getById(int $videoGameId): VideoGame
     {
         return $this->find($videoGameId);
+    }
+
+    public function findAll() : array
+    {
+        return $this->findAll();
     }
 }

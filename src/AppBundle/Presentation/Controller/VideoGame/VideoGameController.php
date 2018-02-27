@@ -2,7 +2,7 @@
 
 namespace AppBundle\Presentation\Controller\VideoGame;
 
-use AppBundle\Application\Service\VideoGame\ShowVideoGameDataService;
+use AppBundle\Application\VideoGame\Service\ShowVideoGameDataService;
 use AppBundle\Domain\Model\VideoGame\VideoGameQueryRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

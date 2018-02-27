@@ -86,5 +86,21 @@ class Platform
         $this->releaseDate = $releaseDate;
     }
 
+    /**
+     * @return Company
+     */
+    public function getCompany(): Company
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param Company $company
+     */
+    public function setCompany(Company $company): void
+    {
+        $this->company = $company;
+    }
+
 
 }

@@ -38,11 +38,11 @@ services:
             arguments: [ "@doctrine.orm.default_entity_manager"]
 
     app.show_video_game_data:
-                class: AppBundle\Application\Service\VideoGame\ShowVideoGameDataService
+                class: AppBundle\Application\VideoGame\Service\ShowVideoGameDataService
                 autowire: true
 
     app.get_video_game_names:
-                class: AppBundle\Application\Service\VideoGame\GetVideoGameNamesService
+                class: AppBundle\Application\VideoGame\Service\GetVideoGameNamesService
                 autowire: true
 
     # add more services, or override services that need manual wiring

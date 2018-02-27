@@ -6,7 +6,7 @@
  * Time: 0:46
  */
 
-namespace AppBundle\Application\Service\VideoGame;
+namespace AppBundle\Application\VideoGame\Service;
 
 
 use AppBundle\Domain\Model\VideoGame\VideoGameQueryRepositoryInterface;
@@ -14,7 +14,7 @@ use AppBundle\Domain\Model\VideoGame\VideoGameQueryRepositoryInterface;
 /**
  * Class GetVideoGameNamesService
  *
- * @package AppBundle\Application\Service\VideoGame
+ * @package AppBundle\Application\VideoGame\Service
  */
 class GetVideoGameNamesService
 {

@@ -14,6 +14,13 @@ interface VideoGameRepositoryInterface
      *
      * @return VideoGame
      */
-    function getById(int $videoGameId) : VideoGame;
+    public function getById(int $videoGameId) : VideoGame;
+
+    /**
+     * Returns all video games
+     *
+     * @return array
+     */
+    public function findAll() : array;
 
 }

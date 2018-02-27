@@ -6,7 +6,7 @@
  * Time: 21:38
  */
 
-namespace AppBundle\Application\Service\VideoGame;
+namespace AppBundle\Application\VideoGame\Service;
 
 use AppBundle\Domain\Model\VideoGame\VideoGameDescription;
 use AppBundle\Domain\Model\VideoGame\VideoGameQueryRepositoryInterface;
@@ -35,7 +35,7 @@ class ShowVideoGameDataService
         foreach ($this->videoGameQueryRepository->getVideoGameData() as $videoGame) {
             $videoGameData[] = [
                 'id' => $videoGame['id'],
-                'name' => $videoGame['name'],
+                'name' => $videoGame['title'],
                 'description' =>$videoGame['description'],
             ];
         }

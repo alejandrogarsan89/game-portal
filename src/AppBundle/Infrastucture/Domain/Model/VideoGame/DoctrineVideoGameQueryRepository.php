@@ -51,7 +51,7 @@ class DoctrineVideoGameQueryRepository implements VideoGameQueryRepositoryInterf
     {
         $sql =
             "
-              SELECT id, name, description 
+              SELECT id, title, description 
               FROM videogame
             "
         ;
